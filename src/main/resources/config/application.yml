@@ -150,11 +150,11 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: https://dev.servers.divisosofttech.com/auth/realms/graeshoppe
+            issuer-uri: http://35.211.83.193:8099/auth/realms/Ayoos
         registration:
           oidc:
             client-id: account
-            client-secret: d4f03412-cdad-45b0-9ccc-beddd8399ac5
+            client-secret: d5a6fa20-eb79-40b0-8193-a9370e2e7b44
 
 server:
   servlet:
