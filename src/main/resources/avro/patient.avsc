@@ -1,0 +1,12 @@
+
+[{
+"namespace":"com.bytatech.ayoos.patient.avro",
+"type":"record",
+"name":"Patient",
+"fields":[
+
+{"name":"name","type":["null","string"],"default": null}
+]
+
+}
+]
