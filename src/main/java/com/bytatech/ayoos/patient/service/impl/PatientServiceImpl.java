@@ -150,6 +150,11 @@ System.out.println("#################################"+patientDTO.getIdpCode());
 		siteBodyCreate.setTitle("rafeeksite");
 		siteBodyCreate.setId("rafeeksite");
 		siteBodyCreate.setVisibility(VisibilityEnum.MODERATED);
+		List<String> s = new ArrayList();
+		s.add("id");
+		s.add("title");
+	
+
 		ResponseEntity<SiteEntry> entry = sitesApi.createSite(siteBodyCreate, false, false, new ArrayList());
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@"+entry.getBody().getEntry().getTitle());
 		return entry.getBody().getEntry().getId();
