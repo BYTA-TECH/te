@@ -148,8 +148,8 @@ System.out.println("#################################"+patientDTO.getIdpCode());
     
 	public String createSite( String siteId) {
 		SiteBodyCreate siteBodyCreate = new SiteBodyCreate();
-		siteBodyCreate.setTitle("ttttttttttttttttt");
-		siteBodyCreate.setId("ttttttttttttttttt");
+		siteBodyCreate.setTitle(siteId);
+		siteBodyCreate.setId(siteId);
 		siteBodyCreate.setVisibility(VisibilityEnum.MODERATED);
 		List<String> s = new ArrayList();
 		s.add("id");
