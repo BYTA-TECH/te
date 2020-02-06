@@ -1,5 +1,6 @@
 package com.bytatech.ayoos.patient.service;
 
+import com.bytatech.ayoos.patient.client.dms.model.SiteMemberEntry;
 import com.bytatech.ayoos.patient.service.dto.PatientDTO;
 
 import org.springframework.data.domain.Page;
@@ -58,6 +59,7 @@ public interface PatientService {
     public void createPersonOnDMS( PatientDTO patientDTO);
     
 	public String createSite( String siteId) ;
+	public SiteMemberEntry createSiteMembership(String siteId, String id);
     
     
 }

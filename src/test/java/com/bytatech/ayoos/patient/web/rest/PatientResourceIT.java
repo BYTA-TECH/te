@@ -66,6 +66,9 @@ public class PatientResourceIT {
     private static final String DEFAULT_DMS_ID = "AAAAAAAAAA";
     private static final String UPDATED_DMS_ID = "BBBBBBBBBB";
 
+    private static final String DEFAULT_EMAIL_ID = "AAAAAAAAAA";
+    private static final String UPDATED_EMAIL_ID = "BBBBBBBBBB";
+
     @Autowired
     private PatientRepository patientRepository;
 
@@ -128,7 +131,8 @@ public class PatientResourceIT {
             .dob(DEFAULT_DOB)
             .location(DEFAULT_LOCATION)
             .createdDate(DEFAULT_CREATED_DATE)
-            .dmsId(DEFAULT_DMS_ID);
+            .dmsId(DEFAULT_DMS_ID)
+            .emailId(DEFAULT_EMAIL_ID);
         return patient;
     }
     /**
@@ -145,7 +149,8 @@ public class PatientResourceIT {
             .dob(UPDATED_DOB)
             .location(UPDATED_LOCATION)
             .createdDate(UPDATED_CREATED_DATE)
-            .dmsId(UPDATED_DMS_ID);
+            .dmsId(UPDATED_DMS_ID)
+            .emailId(UPDATED_EMAIL_ID);
         return patient;
     }
 
@@ -177,6 +182,7 @@ public class PatientResourceIT {
         assertThat(testPatient.getLocation()).isEqualTo(DEFAULT_LOCATION);
         assertThat(testPatient.getCreatedDate()).isEqualTo(DEFAULT_CREATED_DATE);
         assertThat(testPatient.getDmsId()).isEqualTo(DEFAULT_DMS_ID);
+        assertThat(testPatient.getEmailId()).isEqualTo(DEFAULT_EMAIL_ID);
 
         // Validate the Patient in Elasticsearch
         verify(mockPatientSearchRepository, times(1)).save(testPatient);
@@ -223,7 +229,8 @@ public class PatientResourceIT {
             .andExpect(jsonPath("$.[*].dob").value(hasItem(DEFAULT_DOB.toString())))
             .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION)))
             .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())))
-            .andExpect(jsonPath("$.[*].dmsId").value(hasItem(DEFAULT_DMS_ID)));
+            .andExpect(jsonPath("$.[*].dmsId").value(hasItem(DEFAULT_DMS_ID)))
+            .andExpect(jsonPath("$.[*].emailId").value(hasItem(DEFAULT_EMAIL_ID)));
     }
     
     @Test
@@ -243,7 +250,8 @@ public class PatientResourceIT {
             .andExpect(jsonPath("$.dob").value(DEFAULT_DOB.toString()))
             .andExpect(jsonPath("$.location").value(DEFAULT_LOCATION))
             .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()))
-            .andExpect(jsonPath("$.dmsId").value(DEFAULT_DMS_ID));
+            .andExpect(jsonPath("$.dmsId").value(DEFAULT_DMS_ID))
+            .andExpect(jsonPath("$.emailId").value(DEFAULT_EMAIL_ID));
     }
 
     @Test
@@ -273,7 +281,8 @@ public class PatientResourceIT {
             .dob(UPDATED_DOB)
             .location(UPDATED_LOCATION)
             .createdDate(UPDATED_CREATED_DATE)
-            .dmsId(UPDATED_DMS_ID);
+            .dmsId(UPDATED_DMS_ID)
+            .emailId(UPDATED_EMAIL_ID);
         PatientDTO patientDTO = patientMapper.toDto(updatedPatient);
 
         restPatientMockMvc.perform(put("/api/patients")
@@ -292,6 +301,7 @@ public class PatientResourceIT {
         assertThat(testPatient.getLocation()).isEqualTo(UPDATED_LOCATION);
         assertThat(testPatient.getCreatedDate()).isEqualTo(UPDATED_CREATED_DATE);
         assertThat(testPatient.getDmsId()).isEqualTo(UPDATED_DMS_ID);
+        assertThat(testPatient.getEmailId()).isEqualTo(UPDATED_EMAIL_ID);
 
         // Validate the Patient in Elasticsearch
         verify(mockPatientSearchRepository, times(1)).save(testPatient);
@@ -358,6 +368,7 @@ public class PatientResourceIT {
             .andExpect(jsonPath("$.[*].dob").value(hasItem(DEFAULT_DOB.toString())))
             .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION)))
             .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())))
-            .andExpect(jsonPath("$.[*].dmsId").value(hasItem(DEFAULT_DMS_ID)));
+            .andExpect(jsonPath("$.[*].dmsId").value(hasItem(DEFAULT_DMS_ID)))
+            .andExpect(jsonPath("$.[*].emailId").value(hasItem(DEFAULT_EMAIL_ID)));
     }
 }

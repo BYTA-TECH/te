@@ -60,6 +60,14 @@ public class PatientResource {
         if (patientDTO.getId() != null) {
             throw new BadRequestAlertException("A new patient cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        patientService. createPersonOnDMS(patientDTO);
+        
+        String siteId = patientDTO.getIdpCode() + "site";
+		String dmsId =  patientService.createSite(siteId);
+		patientDTO.setDmsId(dmsId);
+		patientService.createSiteMembership(dmsId, patientDTO.getIdpCode());
+        
+        
         PatientDTO result = patientService.save(patientDTO);
         return ResponseEntity.created(new URI("/api/patients/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))

@@ -22,6 +22,7 @@ import java.util.*;
 import static org.elasticsearch.index.query.QueryBuilders.*;
 import com.bytatech.ayoos.patient.client.dms.model.*;
 import com.bytatech.ayoos.patient.client.dms.model.SiteBodyCreate.VisibilityEnum;
+import com.bytatech.ayoos.patient.client.dms.model.SiteMembershipBodyCreate.RoleEnum;
 import com.bytatech.ayoos.patient.client.dms.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -137,7 +138,7 @@ System.out.println("#################################"+patientDTO.getIdpCode());
 		PersonBodyCreate personBodyCreate = new PersonBodyCreate();
 		personBodyCreate.setId(patientDTO.getIdpCode());
 		personBodyCreate.setFirstName(patientDTO.getIdpCode());
-		personBodyCreate.setEmail(patientDTO.getIdpCode()+"@gmail.com");
+		personBodyCreate.setEmail(patientDTO.getEmailId());
 		personBodyCreate.setPassword(patientDTO.getIdpCode());
 		personBodyCreate.setEnabled(true);
 		ResponseEntity<PersonEntry> p=peopleApi.createPerson(personBodyCreate, null);
@@ -160,7 +161,13 @@ System.out.println("#################################"+patientDTO.getIdpCode());
 		return entry.getBody().getEntry().getId();
 	}  
     
-    
+	public SiteMemberEntry createSiteMembership(String siteId, String id) {
+		SiteMembershipBodyCreate siteMembershipBodyCreate = new SiteMembershipBodyCreate();
+		siteMembershipBodyCreate.setRole(RoleEnum.SITEMANAGER);
+		siteMembershipBodyCreate.setId(id);
+		return sitesApi.createSiteMembership(siteId, siteMembershipBodyCreate, null).getBody();
+	}
+
     
     
     

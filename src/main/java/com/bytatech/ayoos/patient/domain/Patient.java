@@ -47,6 +47,9 @@ public class Patient implements Serializable {
     @Column(name = "dms_id")
     private String dmsId;
 
+    @Column(name = "email_id")
+    private String emailId;
+
     @OneToMany(mappedBy = "patient")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<MedicalCase> medicalCases = new HashSet<>();
@@ -151,6 +154,19 @@ public class Patient implements Serializable {
         this.dmsId = dmsId;
     }
 
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public Patient emailId(String emailId) {
+        this.emailId = emailId;
+        return this;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
     public Set<MedicalCase> getMedicalCases() {
         return medicalCases;
     }
@@ -204,6 +220,7 @@ public class Patient implements Serializable {
             ", location='" + getLocation() + "'" +
             ", createdDate='" + getCreatedDate() + "'" +
             ", dmsId='" + getDmsId() + "'" +
+            ", emailId='" + getEmailId() + "'" +
             "}";
     }
 }
