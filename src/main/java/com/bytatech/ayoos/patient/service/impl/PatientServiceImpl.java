@@ -147,15 +147,15 @@ System.out.println("#################################"+patientDTO.getIdpCode());
     
 	public String createSite( String siteId) {
 		SiteBodyCreate siteBodyCreate = new SiteBodyCreate();
-		siteBodyCreate.setTitle("rafeeksite");
-		siteBodyCreate.setId("rafeeksite");
+		siteBodyCreate.setTitle(siteId);
+		siteBodyCreate.setId(siteId);
 		siteBodyCreate.setVisibility(VisibilityEnum.MODERATED);
 		List<String> s = new ArrayList();
 		s.add("id");
 		s.add("title");
 	
 
-		ResponseEntity<SiteEntry> entry = sitesApi.createSite(siteBodyCreate, false, false, new ArrayList());
+		ResponseEntity<SiteEntry> entry = sitesApi.createSite(siteBodyCreate, false, false,s);
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@"+entry.getBody().getEntry().getTitle());
 		return entry.getBody().getEntry().getId();
 	}  
