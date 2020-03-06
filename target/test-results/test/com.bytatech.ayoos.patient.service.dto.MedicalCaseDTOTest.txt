@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.service.dto.MedicalCaseDTOTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.064 s <<< FAILURE! - in com.bytatech.ayoos.patient.service.dto.MedicalCaseDTOTest
+com.bytatech.ayoos.patient.service.dto.MedicalCaseDTOTest.dtoEqualsVerifier  Time elapsed: 0.06 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/service/dto/MedicalCaseDTO
+	at com.bytatech.ayoos.patient.service.dto.MedicalCaseDTOTest.dtoEqualsVerifier(MedicalCaseDTOTest.java:11)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.service.dto.MedicalCaseDTO
+	at com.bytatech.ayoos.patient.service.dto.MedicalCaseDTOTest.dtoEqualsVerifier(MedicalCaseDTOTest.java:11)
+

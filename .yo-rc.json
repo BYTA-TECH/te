@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.bytatech.ayoos.patient",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.6.0",
+    "applicationType": "microservice",
+    "baseName": "patient",
+    "packageName": "com.bytatech.ayoos.patient",
+    "packageFolder": "com/bytatech/ayoos/patient",
+    "serverPort": "8099",
+    "authenticationType": "oauth2",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NTE1NThmNzY2ZDJmMmNlZjI1YmQ3NWFmM2VkN2Y0MzQyNTUwMTU0NWNmOWZmNDJiZTJmZjgxNmQzMzMwYWIyZDY1NTY3OWUzOTQ5NzExNDNjZGIwMzdjMzI5ZWE0Y2VjMTg5NmYyOWNlMGYzOTgwZDRlM2YwYmYxZjhjNTA0YmY=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1580444038767,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": ["en"],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

@@ -17,8 +17,12 @@
     <include file="config/liquibase/changelog/20200131072140_added_entity_Patient.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200131072141_added_entity_MedicalCase.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200131072142_added_entity_DMSRecord.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200306081151_added_entity_Patient.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200306081152_added_entity_MedicalCase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200306081153_added_entity_DMSRecord.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200131072141_added_entity_constraints_MedicalCase.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200131072142_added_entity_constraints_DMSRecord.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200306081153_added_entity_constraints_DMSRecord.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

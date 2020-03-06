@@ -1,5 +1,4 @@
 package com.bytatech.ayoos.patient.domain;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -42,10 +41,6 @@ public class MedicalCase implements Serializable {
     @OneToMany(mappedBy = "medicalCase")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<DMSRecord> dmsRecords = new HashSet<>();
-
-    @ManyToOne
-    @JsonIgnoreProperties("medicalCases")
-    private Patient patient;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -131,19 +126,6 @@ public class MedicalCase implements Serializable {
 
     public void setDmsRecords(Set<DMSRecord> dMSRecords) {
         this.dmsRecords = dMSRecords;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public MedicalCase patient(Patient patient) {
-        this.patient = patient;
-        return this;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

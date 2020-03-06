@@ -1,0 +1,53 @@
+{
+    "name": "Patient",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imageLink",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idpCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dob",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dmsId",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200306081151",
+    "entityTableName": "patient",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "patient",
+    "applications": "*",
+    "microserviceName": "patient"
+}

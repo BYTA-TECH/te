@@ -1,0 +1,40 @@
+{
+    "name": "MedicalCase",
+    "fields": [
+        {
+            "fieldName": "consultedDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "diagnosed",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "note",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "dMSRecord",
+            "otherEntityRelationshipName": "medicalCase",
+            "relationshipName": "dmsRecords"
+        }
+    ],
+    "changelogDate": "20200306081152",
+    "entityTableName": "medical_case",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "patient",
+    "applications": "*",
+    "microserviceName": "patient"
+}

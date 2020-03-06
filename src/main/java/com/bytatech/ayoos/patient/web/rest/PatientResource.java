@@ -60,42 +60,12 @@ public class PatientResource {
         if (patientDTO.getId() != null) {
             throw new BadRequestAlertException("A new patient cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        patientService. createPersonOnDMS(patientDTO);
-        
-        String siteId = patientDTO.getIdpCode() + "site";
-		String dmsId =  patientService.createSite(siteId);
-		patientDTO.setDmsId(dmsId);
-		patientService.createSiteMembership(dmsId, patientDTO.getIdpCode());
-        
-        
         PatientDTO result = patientService.save(patientDTO);
         return ResponseEntity.created(new URI("/api/patients/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
-    
-	@PostMapping("/testpeople")
-	public void createPersonOnDMS(@RequestBody PatientDTO patientDTO) {
-		log.debug("=================into the process createPeople()===========");
-System.out.println("#################################"+patientDTO.getIdpCode());
-patientService.createPersonOnDMS(patientDTO);
-}
-
-	@PostMapping("/testsite/{siteId}")
-
-		public String createSite(@PathVariable String siteId) {
-			
-			return patientService.createSite(siteId) ;
-		}  
-    
-    
-    
-    
-    
-    
-    
-    
     /**
      * {@code PUT  /patients} : Updates an existing patient.
      *

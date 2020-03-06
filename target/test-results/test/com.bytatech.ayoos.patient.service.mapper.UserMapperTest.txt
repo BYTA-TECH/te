@@ -1,0 +1,54 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.service.mapper.UserMapperTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.178 s <<< FAILURE! - in com.bytatech.ayoos.patient.service.mapper.UserMapperTest
+com.bytatech.ayoos.patient.service.mapper.UserMapperTest.userDTOToUserMapWithAuthoritiesStringShouldReturnUserWithAuthorities  Time elapsed: 0.151 s  <<< ERROR!
+java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+Caused by: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.domain.Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+
+com.bytatech.ayoos.patient.service.mapper.UserMapperTest.userDTOToUserMapWithNullAuthoritiesStringShouldReturnUserWithEmptyAuthorities  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+Caused by: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+
+com.bytatech.ayoos.patient.service.mapper.UserMapperTest.usersToUserDTOsShouldMapOnlyNonNullUsers  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+Caused by: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+
+com.bytatech.ayoos.patient.service.mapper.UserMapperTest.testUserFromId  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+Caused by: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+
+com.bytatech.ayoos.patient.service.mapper.UserMapperTest.userDTOToUserMapWithNullUserShouldReturnNull  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+Caused by: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+
+com.bytatech.ayoos.patient.service.mapper.UserMapperTest.userDTOsToUsersShouldMapOnlyNonNullUsers  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+Caused by: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+
+com.bytatech.ayoos.patient.service.mapper.UserMapperTest.userDTOsToUsersMapWithNullAuthoritiesStringShouldReturnUserWithEmptyAuthorities  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+Caused by: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+
+com.bytatech.ayoos.patient.service.mapper.UserMapperTest.userDTOsToUsersWithAuthoritiesStringShouldMapToUsersWithAuthoritiesDomain  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+Caused by: java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Authority
+	at com.bytatech.ayoos.patient.service.mapper.UserMapperTest.init(UserMapperTest.java:39)
+

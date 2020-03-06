@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.service.mapper.PatientMapperTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.042 s <<< FAILURE! - in com.bytatech.ayoos.patient.service.mapper.PatientMapperTest
+com.bytatech.ayoos.patient.service.mapper.PatientMapperTest.testEntityFromId  Time elapsed: 0.04 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/service/mapper/PatientMapperImpl
+	at com.bytatech.ayoos.patient.service.mapper.PatientMapperTest.setUp(PatientMapperTest.java:14)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.service.mapper.PatientMapperImpl
+	at com.bytatech.ayoos.patient.service.mapper.PatientMapperTest.setUp(PatientMapperTest.java:14)
+

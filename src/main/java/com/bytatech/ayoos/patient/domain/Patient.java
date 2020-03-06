@@ -7,8 +7,6 @@ import javax.persistence.*;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Patient.
@@ -25,6 +23,12 @@ public class Patient implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @org.springframework.data.elasticsearch.annotations.Field(type = FieldType.Keyword)
     private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "address")
+    private String address;
 
     @Column(name = "image_link")
     private String imageLink;
@@ -47,13 +51,6 @@ public class Patient implements Serializable {
     @Column(name = "dms_id")
     private String dmsId;
 
-    @Column(name = "email_id")
-    private String emailId;
-
-    @OneToMany(mappedBy = "patient")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<MedicalCase> medicalCases = new HashSet<>();
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -61,6 +58,32 @@ public class Patient implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Patient name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Patient address(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getImageLink() {
@@ -153,44 +176,6 @@ public class Patient implements Serializable {
     public void setDmsId(String dmsId) {
         this.dmsId = dmsId;
     }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public Patient emailId(String emailId) {
-        this.emailId = emailId;
-        return this;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
-    public Set<MedicalCase> getMedicalCases() {
-        return medicalCases;
-    }
-
-    public Patient medicalCases(Set<MedicalCase> medicalCases) {
-        this.medicalCases = medicalCases;
-        return this;
-    }
-
-    public Patient addMedicalCases(MedicalCase medicalCase) {
-        this.medicalCases.add(medicalCase);
-        medicalCase.setPatient(this);
-        return this;
-    }
-
-    public Patient removeMedicalCases(MedicalCase medicalCase) {
-        this.medicalCases.remove(medicalCase);
-        medicalCase.setPatient(null);
-        return this;
-    }
-
-    public void setMedicalCases(Set<MedicalCase> medicalCases) {
-        this.medicalCases = medicalCases;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -213,6 +198,8 @@ public class Patient implements Serializable {
     public String toString() {
         return "Patient{" +
             "id=" + getId() +
+            ", name='" + getName() + "'" +
+            ", address='" + getAddress() + "'" +
             ", imageLink='" + getImageLink() + "'" +
             ", phoneNumber=" + getPhoneNumber() +
             ", idpCode='" + getIdpCode() + "'" +
@@ -220,7 +207,6 @@ public class Patient implements Serializable {
             ", location='" + getLocation() + "'" +
             ", createdDate='" + getCreatedDate() + "'" +
             ", dmsId='" + getDmsId() + "'" +
-            ", emailId='" + getEmailId() + "'" +
             "}";
     }
 }

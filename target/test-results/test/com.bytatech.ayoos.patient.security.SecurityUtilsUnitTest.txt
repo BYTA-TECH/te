@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.705 s <<< FAILURE! - in com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest
+com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testGetCurrentUserLogin  Time elapsed: 0.253 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/security/SecurityUtils
+	at com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testGetCurrentUserLogin(SecurityUtilsUnitTest.java:30)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.security.SecurityUtils
+	at com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testGetCurrentUserLogin(SecurityUtilsUnitTest.java:30)
+
+com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testIsCurrentUserInRole  Time elapsed: 0.047 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/security/SecurityUtils
+	at com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testIsCurrentUserInRole(SecurityUtilsUnitTest.java:83)
+
+com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testIsAuthenticated  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/security/SecurityUtils
+	at com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testIsAuthenticated(SecurityUtilsUnitTest.java:60)
+
+com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testAnonymousIsNotAuthenticated  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/security/SecurityUtils
+	at com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testAnonymousIsNotAuthenticated(SecurityUtilsUnitTest.java:71)
+
+com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testGetCurrentUserLoginForOAuth2  Time elapsed: 0.395 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/security/SecurityUtils
+	at com.bytatech.ayoos.patient.security.SecurityUtilsUnitTest.testGetCurrentUserLoginForOAuth2(SecurityUtilsUnitTest.java:50)
+

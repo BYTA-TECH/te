@@ -1,11 +1,9 @@
 package com.bytatech.ayoos.patient.service;
 
-import com.bytatech.ayoos.patient.client.dms.model.SiteMemberEntry;
 import com.bytatech.ayoos.patient.service.dto.PatientDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
@@ -55,11 +53,4 @@ public interface PatientService {
      * @return the list of entities.
      */
     Page<PatientDTO> search(String query, Pageable pageable);
-    
-    public void createPersonOnDMS( PatientDTO patientDTO);
-    
-	public String createSite( String siteId) ;
-	public SiteMemberEntry createSiteMembership(String siteId, String id);
-    
-    
 }

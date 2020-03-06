@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.domain.DMSRecordTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in com.bytatech.ayoos.patient.domain.DMSRecordTest
+com.bytatech.ayoos.patient.domain.DMSRecordTest.equalsVerifier  Time elapsed: 0.036 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/DMSRecord
+	at com.bytatech.ayoos.patient.domain.DMSRecordTest.equalsVerifier(DMSRecordTest.java:11)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.domain.DMSRecord
+	at com.bytatech.ayoos.patient.domain.DMSRecordTest.equalsVerifier(DMSRecordTest.java:11)
+

@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.service.dto.PatientDTOTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in com.bytatech.ayoos.patient.service.dto.PatientDTOTest
+com.bytatech.ayoos.patient.service.dto.PatientDTOTest.dtoEqualsVerifier  Time elapsed: 0.01 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/service/dto/PatientDTO
+	at com.bytatech.ayoos.patient.service.dto.PatientDTOTest.dtoEqualsVerifier(PatientDTOTest.java:11)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.service.dto.PatientDTO
+	at com.bytatech.ayoos.patient.service.dto.PatientDTOTest.dtoEqualsVerifier(PatientDTOTest.java:11)
+

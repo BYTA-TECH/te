@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.config.WebConfigurerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 26.43 s <<< FAILURE! - in com.bytatech.ayoos.patient.config.WebConfigurerTest
+com.bytatech.ayoos.patient.config.WebConfigurerTest.testCorsFilterOnOtherPath  Time elapsed: 25.14 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/config/WebConfigurerTestController
+	at com.bytatech.ayoos.patient.config.WebConfigurerTest.testCorsFilterOnOtherPath(WebConfigurerTest.java:103)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.config.WebConfigurerTestController
+	at com.bytatech.ayoos.patient.config.WebConfigurerTest.testCorsFilterOnOtherPath(WebConfigurerTest.java:103)
+
+com.bytatech.ayoos.patient.config.WebConfigurerTest.testCorsFilterDeactivated  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/config/WebConfigurerTestController
+	at com.bytatech.ayoos.patient.config.WebConfigurerTest.testCorsFilterDeactivated(WebConfigurerTest.java:118)
+
+com.bytatech.ayoos.patient.config.WebConfigurerTest.testCorsFilterOnApiPath  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/config/WebConfigurerTestController
+	at com.bytatech.ayoos.patient.config.WebConfigurerTest.testCorsFilterOnApiPath(WebConfigurerTest.java:73)
+
+com.bytatech.ayoos.patient.config.WebConfigurerTest.testCorsFilterDeactivated2  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/config/WebConfigurerTestController
+	at com.bytatech.ayoos.patient.config.WebConfigurerTest.testCorsFilterDeactivated2(WebConfigurerTest.java:133)
+

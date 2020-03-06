@@ -10,6 +10,10 @@ public class PatientDTO implements Serializable {
 
     private Long id;
 
+    private String name;
+
+    private String address;
+
     private String imageLink;
 
     private Long phoneNumber;
@@ -24,8 +28,6 @@ public class PatientDTO implements Serializable {
 
     private String dmsId;
 
-    private String emailId;
-
 
     public Long getId() {
         return id;
@@ -33,6 +35,22 @@ public class PatientDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getImageLink() {
@@ -91,14 +109,6 @@ public class PatientDTO implements Serializable {
         this.dmsId = dmsId;
     }
 
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -124,6 +134,8 @@ public class PatientDTO implements Serializable {
     public String toString() {
         return "PatientDTO{" +
             "id=" + getId() +
+            ", name='" + getName() + "'" +
+            ", address='" + getAddress() + "'" +
             ", imageLink='" + getImageLink() + "'" +
             ", phoneNumber=" + getPhoneNumber() +
             ", idpCode='" + getIdpCode() + "'" +
@@ -131,7 +143,6 @@ public class PatientDTO implements Serializable {
             ", location='" + getLocation() + "'" +
             ", createdDate='" + getCreatedDate() + "'" +
             ", dmsId='" + getDmsId() + "'" +
-            ", emailId='" + getEmailId() + "'" +
             "}";
     }
 }

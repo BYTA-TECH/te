@@ -45,6 +45,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = {PatientApp.class, TestSecurityConfiguration.class})
 public class PatientResourceIT {
 
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_ADDRESS = "AAAAAAAAAA";
+    private static final String UPDATED_ADDRESS = "BBBBBBBBBB";
+
     private static final String DEFAULT_IMAGE_LINK = "AAAAAAAAAA";
     private static final String UPDATED_IMAGE_LINK = "BBBBBBBBBB";
 
@@ -65,9 +71,6 @@ public class PatientResourceIT {
 
     private static final String DEFAULT_DMS_ID = "AAAAAAAAAA";
     private static final String UPDATED_DMS_ID = "BBBBBBBBBB";
-
-    private static final String DEFAULT_EMAIL_ID = "AAAAAAAAAA";
-    private static final String UPDATED_EMAIL_ID = "BBBBBBBBBB";
 
     @Autowired
     private PatientRepository patientRepository;
@@ -125,14 +128,15 @@ public class PatientResourceIT {
      */
     public static Patient createEntity(EntityManager em) {
         Patient patient = new Patient()
+            .name(DEFAULT_NAME)
+            .address(DEFAULT_ADDRESS)
             .imageLink(DEFAULT_IMAGE_LINK)
             .phoneNumber(DEFAULT_PHONE_NUMBER)
             .idpCode(DEFAULT_IDP_CODE)
             .dob(DEFAULT_DOB)
             .location(DEFAULT_LOCATION)
             .createdDate(DEFAULT_CREATED_DATE)
-            .dmsId(DEFAULT_DMS_ID)
-            .emailId(DEFAULT_EMAIL_ID);
+            .dmsId(DEFAULT_DMS_ID);
         return patient;
     }
     /**
@@ -143,14 +147,15 @@ public class PatientResourceIT {
      */
     public static Patient createUpdatedEntity(EntityManager em) {
         Patient patient = new Patient()
+            .name(UPDATED_NAME)
+            .address(UPDATED_ADDRESS)
             .imageLink(UPDATED_IMAGE_LINK)
             .phoneNumber(UPDATED_PHONE_NUMBER)
             .idpCode(UPDATED_IDP_CODE)
             .dob(UPDATED_DOB)
             .location(UPDATED_LOCATION)
             .createdDate(UPDATED_CREATED_DATE)
-            .dmsId(UPDATED_DMS_ID)
-            .emailId(UPDATED_EMAIL_ID);
+            .dmsId(UPDATED_DMS_ID);
         return patient;
     }
 
@@ -175,6 +180,8 @@ public class PatientResourceIT {
         List<Patient> patientList = patientRepository.findAll();
         assertThat(patientList).hasSize(databaseSizeBeforeCreate + 1);
         Patient testPatient = patientList.get(patientList.size() - 1);
+        assertThat(testPatient.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testPatient.getAddress()).isEqualTo(DEFAULT_ADDRESS);
         assertThat(testPatient.getImageLink()).isEqualTo(DEFAULT_IMAGE_LINK);
         assertThat(testPatient.getPhoneNumber()).isEqualTo(DEFAULT_PHONE_NUMBER);
         assertThat(testPatient.getIdpCode()).isEqualTo(DEFAULT_IDP_CODE);
@@ -182,7 +189,6 @@ public class PatientResourceIT {
         assertThat(testPatient.getLocation()).isEqualTo(DEFAULT_LOCATION);
         assertThat(testPatient.getCreatedDate()).isEqualTo(DEFAULT_CREATED_DATE);
         assertThat(testPatient.getDmsId()).isEqualTo(DEFAULT_DMS_ID);
-        assertThat(testPatient.getEmailId()).isEqualTo(DEFAULT_EMAIL_ID);
 
         // Validate the Patient in Elasticsearch
         verify(mockPatientSearchRepository, times(1)).save(testPatient);
@@ -223,14 +229,15 @@ public class PatientResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(patient.getId().intValue())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
+            .andExpect(jsonPath("$.[*].address").value(hasItem(DEFAULT_ADDRESS)))
             .andExpect(jsonPath("$.[*].imageLink").value(hasItem(DEFAULT_IMAGE_LINK)))
             .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER.intValue())))
             .andExpect(jsonPath("$.[*].idpCode").value(hasItem(DEFAULT_IDP_CODE)))
             .andExpect(jsonPath("$.[*].dob").value(hasItem(DEFAULT_DOB.toString())))
             .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION)))
             .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())))
-            .andExpect(jsonPath("$.[*].dmsId").value(hasItem(DEFAULT_DMS_ID)))
-            .andExpect(jsonPath("$.[*].emailId").value(hasItem(DEFAULT_EMAIL_ID)));
+            .andExpect(jsonPath("$.[*].dmsId").value(hasItem(DEFAULT_DMS_ID)));
     }
     
     @Test
@@ -244,14 +251,15 @@ public class PatientResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(patient.getId().intValue()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
+            .andExpect(jsonPath("$.address").value(DEFAULT_ADDRESS))
             .andExpect(jsonPath("$.imageLink").value(DEFAULT_IMAGE_LINK))
             .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER.intValue()))
             .andExpect(jsonPath("$.idpCode").value(DEFAULT_IDP_CODE))
             .andExpect(jsonPath("$.dob").value(DEFAULT_DOB.toString()))
             .andExpect(jsonPath("$.location").value(DEFAULT_LOCATION))
             .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()))
-            .andExpect(jsonPath("$.dmsId").value(DEFAULT_DMS_ID))
-            .andExpect(jsonPath("$.emailId").value(DEFAULT_EMAIL_ID));
+            .andExpect(jsonPath("$.dmsId").value(DEFAULT_DMS_ID));
     }
 
     @Test
@@ -275,14 +283,15 @@ public class PatientResourceIT {
         // Disconnect from session so that the updates on updatedPatient are not directly saved in db
         em.detach(updatedPatient);
         updatedPatient
+            .name(UPDATED_NAME)
+            .address(UPDATED_ADDRESS)
             .imageLink(UPDATED_IMAGE_LINK)
             .phoneNumber(UPDATED_PHONE_NUMBER)
             .idpCode(UPDATED_IDP_CODE)
             .dob(UPDATED_DOB)
             .location(UPDATED_LOCATION)
             .createdDate(UPDATED_CREATED_DATE)
-            .dmsId(UPDATED_DMS_ID)
-            .emailId(UPDATED_EMAIL_ID);
+            .dmsId(UPDATED_DMS_ID);
         PatientDTO patientDTO = patientMapper.toDto(updatedPatient);
 
         restPatientMockMvc.perform(put("/api/patients")
@@ -294,6 +303,8 @@ public class PatientResourceIT {
         List<Patient> patientList = patientRepository.findAll();
         assertThat(patientList).hasSize(databaseSizeBeforeUpdate);
         Patient testPatient = patientList.get(patientList.size() - 1);
+        assertThat(testPatient.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testPatient.getAddress()).isEqualTo(UPDATED_ADDRESS);
         assertThat(testPatient.getImageLink()).isEqualTo(UPDATED_IMAGE_LINK);
         assertThat(testPatient.getPhoneNumber()).isEqualTo(UPDATED_PHONE_NUMBER);
         assertThat(testPatient.getIdpCode()).isEqualTo(UPDATED_IDP_CODE);
@@ -301,7 +312,6 @@ public class PatientResourceIT {
         assertThat(testPatient.getLocation()).isEqualTo(UPDATED_LOCATION);
         assertThat(testPatient.getCreatedDate()).isEqualTo(UPDATED_CREATED_DATE);
         assertThat(testPatient.getDmsId()).isEqualTo(UPDATED_DMS_ID);
-        assertThat(testPatient.getEmailId()).isEqualTo(UPDATED_EMAIL_ID);
 
         // Validate the Patient in Elasticsearch
         verify(mockPatientSearchRepository, times(1)).save(testPatient);
@@ -362,13 +372,14 @@ public class PatientResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(patient.getId().intValue())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
+            .andExpect(jsonPath("$.[*].address").value(hasItem(DEFAULT_ADDRESS)))
             .andExpect(jsonPath("$.[*].imageLink").value(hasItem(DEFAULT_IMAGE_LINK)))
             .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER.intValue())))
             .andExpect(jsonPath("$.[*].idpCode").value(hasItem(DEFAULT_IDP_CODE)))
             .andExpect(jsonPath("$.[*].dob").value(hasItem(DEFAULT_DOB.toString())))
             .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION)))
             .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())))
-            .andExpect(jsonPath("$.[*].dmsId").value(hasItem(DEFAULT_DMS_ID)))
-            .andExpect(jsonPath("$.[*].emailId").value(hasItem(DEFAULT_EMAIL_ID)));
+            .andExpect(jsonPath("$.[*].dmsId").value(hasItem(DEFAULT_DMS_ID)));
     }
 }

@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.service.mapper.DMSRecordMapperTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in com.bytatech.ayoos.patient.service.mapper.DMSRecordMapperTest
+com.bytatech.ayoos.patient.service.mapper.DMSRecordMapperTest.testEntityFromId  Time elapsed: 0.012 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/service/mapper/DMSRecordMapperImpl
+	at com.bytatech.ayoos.patient.service.mapper.DMSRecordMapperTest.setUp(DMSRecordMapperTest.java:14)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.service.mapper.DMSRecordMapperImpl
+	at com.bytatech.ayoos.patient.service.mapper.DMSRecordMapperTest.setUp(DMSRecordMapperTest.java:14)
+

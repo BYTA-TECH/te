@@ -6,8 +6,6 @@ import com.bytatech.ayoos.patient.repository.PatientRepository;
 import com.bytatech.ayoos.patient.repository.search.PatientSearchRepository;
 import com.bytatech.ayoos.patient.service.dto.PatientDTO;
 import com.bytatech.ayoos.patient.service.mapper.PatientMapper;
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,17 +13,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.*;
+import java.util.Optional;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
-import com.bytatech.ayoos.patient.client.dms.model.*;
-import com.bytatech.ayoos.patient.client.dms.model.SiteBodyCreate.VisibilityEnum;
-import com.bytatech.ayoos.patient.client.dms.model.SiteMembershipBodyCreate.RoleEnum;
-import com.bytatech.ayoos.patient.client.dms.api.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+
 /**
  * Service Implementation for managing {@link Patient}.
  */
@@ -40,23 +32,13 @@ public class PatientServiceImpl implements PatientService {
     private final PatientMapper patientMapper;
 
     private final PatientSearchRepository patientSearchRepository;
-@Autowired
-    PeopleApi peopleApi;
-@Autowired
-SitesApi sitesApi;
-    
-    
-    
+
     public PatientServiceImpl(PatientRepository patientRepository, PatientMapper patientMapper, PatientSearchRepository patientSearchRepository) {
         this.patientRepository = patientRepository;
         this.patientMapper = patientMapper;
         this.patientSearchRepository = patientSearchRepository;
     }
 
-    
-    
-    
-    
     /**
      * Save a patient.
      *
@@ -128,54 +110,4 @@ SitesApi sitesApi;
         return patientSearchRepository.search(queryStringQuery(query), pageable)
             .map(patientMapper::toDto);
     }
-    
-    
-    
-	
-	public void createPersonOnDMS( PatientDTO patientDTO) {
-		log.debug("=================into the process createPeople()===========");
-System.out.println("#################################"+patientDTO.getIdpCode());
-		PersonBodyCreate personBodyCreate = new PersonBodyCreate();
-		personBodyCreate.setId(patientDTO.getIdpCode());
-		personBodyCreate.setFirstName(patientDTO.getIdpCode());
-		personBodyCreate.setEmail(patientDTO.getEmailId());
-		personBodyCreate.setPassword(patientDTO.getIdpCode());
-		personBodyCreate.setEnabled(true);
-		ResponseEntity<PersonEntry> p=peopleApi.createPerson(personBodyCreate, null);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+p.getBody());
-	}
-
-    
-	public String createSite( String siteId) {
-		SiteBodyCreate siteBodyCreate = new SiteBodyCreate();
-		siteBodyCreate.setTitle(siteId);
-		siteBodyCreate.setId(siteId);
-		siteBodyCreate.setVisibility(VisibilityEnum.MODERATED);
-		List<String> s = new ArrayList();
-		s.add("id");
-		s.add("title");
-	
-
-		ResponseEntity<SiteEntry> entry = sitesApi.createSite(siteBodyCreate, false, false,s);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@"+entry.getBody().getEntry().getTitle());
-		return entry.getBody().getEntry().getId();
-	}  
-    
-	public SiteMemberEntry createSiteMembership(String siteId, String id) {
-		SiteMembershipBodyCreate siteMembershipBodyCreate = new SiteMembershipBodyCreate();
-		siteMembershipBodyCreate.setRole(RoleEnum.SITEMANAGER);
-		siteMembershipBodyCreate.setId(id);
-		return sitesApi.createSiteMembership(siteId, siteMembershipBodyCreate, null).getBody();
-	}
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

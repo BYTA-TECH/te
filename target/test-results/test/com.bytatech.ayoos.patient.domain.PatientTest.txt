@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.domain.PatientTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.086 s <<< FAILURE! - in com.bytatech.ayoos.patient.domain.PatientTest
+com.bytatech.ayoos.patient.domain.PatientTest.equalsVerifier  Time elapsed: 0.084 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/Patient
+	at com.bytatech.ayoos.patient.domain.PatientTest.equalsVerifier(PatientTest.java:11)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.domain.Patient
+	at com.bytatech.ayoos.patient.domain.PatientTest.equalsVerifier(PatientTest.java:11)
+

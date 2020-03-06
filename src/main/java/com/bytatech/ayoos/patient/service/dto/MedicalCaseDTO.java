@@ -19,8 +19,6 @@ public class MedicalCaseDTO implements Serializable {
     private String note;
 
 
-    private Long patientId;
-
     public Long getId() {
         return id;
     }
@@ -61,14 +59,6 @@ public class MedicalCaseDTO implements Serializable {
         this.note = note;
     }
 
-    public Long getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(Long patientId) {
-        this.patientId = patientId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -98,7 +88,6 @@ public class MedicalCaseDTO implements Serializable {
             ", createdDate='" + getCreatedDate() + "'" +
             ", diagnosed='" + getDiagnosed() + "'" +
             ", note='" + getNote() + "'" +
-            ", patientId=" + getPatientId() +
             "}";
     }
 }

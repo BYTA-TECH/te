@@ -12,9 +12,6 @@ import org.mapstruct.*;
 public interface PatientMapper extends EntityMapper<PatientDTO, Patient> {
 
 
-    @Mapping(target = "medicalCases", ignore = true)
-    @Mapping(target = "removeMedicalCases", ignore = true)
-    Patient toEntity(PatientDTO patientDTO);
 
     default Patient fromId(Long id) {
         if (id == null) {

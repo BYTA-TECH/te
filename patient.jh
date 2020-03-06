@@ -1,15 +1,16 @@
 
 
 
-entity Patient{
+entity Patient{  
+    name String,
+    address String,  
     imageLink String,
 	phoneNumber Long,
 	idpCode String,
 	dob LocalDate,
     location String,
     createdDate LocalDate,
-    dmsId String,
-emailId String
+    dmsId String
   }
 
 
@@ -25,7 +26,7 @@ emailId String
 
 relationship OneToMany{
 
-	Patient {medicalCases} to  MedicalCase,
+	 
     MedicalCase {dmsRecords} to  DMSRecord
     }
 

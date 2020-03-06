@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.bytatech.ayoos.patient.domain.MedicalCaseTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.035 s <<< FAILURE! - in com.bytatech.ayoos.patient.domain.MedicalCaseTest
+com.bytatech.ayoos.patient.domain.MedicalCaseTest.equalsVerifier  Time elapsed: 0.032 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/bytatech/ayoos/patient/domain/MedicalCase
+	at com.bytatech.ayoos.patient.domain.MedicalCaseTest.equalsVerifier(MedicalCaseTest.java:11)
+Caused by: java.lang.ClassNotFoundException: com.bytatech.ayoos.patient.domain.MedicalCase
+	at com.bytatech.ayoos.patient.domain.MedicalCaseTest.equalsVerifier(MedicalCaseTest.java:11)
+
