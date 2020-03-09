@@ -33,7 +33,7 @@ eureka:
     metadata-map:
       zone: primary # This is needed for the load balancer
       profile: ${spring.profiles.active}
-      version: #project.version#
+      version: 0.0.1-SNAPSHOT
       git-version: ${git.commit.id.describe:}
       git-commit: ${git.commit.id.abbrev:}
       git-branch: ${git.branch:}
@@ -224,19 +224,19 @@ kafka:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 elasticsearch:
-   host: 40097436f7e24cb0b163ff5f89b10638.us-central1.gcp.cloud.es.io
+   host: 81b3d974a18b4c16bc3cdbb3595ffcf9.us-central1.gcp.cloud.es.io
    port: 9243
    username: elastic
-   password: PwzrYpkzIGtwdk0fZI9AahwN
+   password: kUaIPSZLw5WJERdn219tvVW3
    scheme: https
    connectTimeout: 60 #in seconds
    
 dms:
-   url: https://wixm3z.trial.alfresco.com/alfresco/api/-default-/public/alfresco/versions/1
+   url: https://gotjmq.trial.alfresco.com/alfresco/api/-default-/public/alfresco/versions/1
    security:
       basicAuth:
-         username: pushkala.m@lxisoft.com      
-         password: nbmf44jejz   
+         username: sarath.kumar.s@lxisoft.com      
+         password: fg5q4riwxy   
    
 
 # application:
