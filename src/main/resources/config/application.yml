@@ -224,10 +224,10 @@ kafka:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 elasticsearch:
-   host: 40097436f7e24cb0b163ff5f89b10638.us-central1.gcp.cloud.es.io
+   host: 42a48fe03c914a3fb7bed40557377a1e.us-central1.gcp.cloud.es.io
    port: 9243
    username: elastic
-   password: PwzrYpkzIGtwdk0fZI9AahwN
+   password: cQJ7cqaSxCBA7rM3ubIg79l1
    scheme: https
    connectTimeout: 60 #in seconds
    
